@@ -16,7 +16,9 @@ def main():
     #utils.write_input_to_file(data)
     os.system("./main.sh")
     pfa = utils.write_output_to_pfa("Multivariate")
-    #io_helper.save_results(pfa, error, shape)
+    error = 0
+    shape = 0
+    io_helper.save_results(pfa, error, shape)
 
 
 

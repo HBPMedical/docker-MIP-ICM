@@ -38,7 +38,11 @@ RUN cd longitudina/ && rm -rf build && \
 git submodule init && git submodule update && \
 cmake . && make
 
-COPY utils.py /utils.py
+COPY utils/utils.py utils/utils.py
+COPY utils/utils_highcharts.py utils/utils_highcharts.py
+COPY utils/utils_inputs.py utils/utils_inputs.py
+COPY utils/utils_PFA.py utils/utils_PFAgit .py
 COPY algo.py /main.py
-COPY main.sh /main.sh
+COPY main_univariate.sh /main_univariate.sh
+COPY main_multivariate.sh /main_multivariate.sh
 #CMD ["./main.py"]

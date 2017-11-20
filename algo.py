@@ -11,16 +11,15 @@ import utils
 def main():
     logging.basicConfig(level=logging.INFO)
     data = io_helper.fetch_data() #renverra des dataframes pandas => 2 novembre, envoyer message to Mirco
-    print("This is the dataaaaa")
     print(data)
     print("End of the dataaaaa")
-    #utils.write_input_to_file(data)
-    os.system("./main.sh")
-    pfa = utils.write_output_to_pfa("Multivariate")
-    print(pfa)
+    model_type = utils.write_input_to_file(data)
+    os.system("./main_" + model_type + ".sh")
+    highchart = utils.write_output_to_highchart(model_type)
+    print(highchart)
     error = 0
     shape = 0
-    io_helper.save_results(pfa, error, shape)
+    io_helper.save_results(highchart, error, shape)
 
 
 

@@ -5,7 +5,7 @@ import os
 import sys
 sys.path.append("/Users/clementine.fourrier/Documents/Projets/HBP/python-base-docker-images/python-mip/io_helper/io_helper/")
 import io_helper
-import utils
+from utils import utils
 
 
 def main():

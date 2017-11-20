@@ -122,6 +122,6 @@ def write_univar_output_to_highchart():
                     "{text: 'Age'}}, legend: {layout: 'vertical',align: 'right',verticalAlign: 'middle',borderWidth: 0}, " \
                     "series: " + series + "}"
 
-    print result_string
+    print(result_string)
 
     return result_string

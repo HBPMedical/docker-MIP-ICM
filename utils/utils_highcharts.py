@@ -20,7 +20,7 @@ def generate_all_data_univar(pop_param, indiv_param):
     t0 = pop_param['taumean']
 
     loc_series.append({'data': generate_data_univar(p0, v0, t0), 'name': 'Mean'})
-    for i in range(len(indiv_param)):
+    for i in indiv_param.keys():
         t0 = indiv_param[i]['tau']
         v0 = math.exp(indiv_param[i]['ksi'])
         id = indiv_param[i]['id']

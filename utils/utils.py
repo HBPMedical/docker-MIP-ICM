@@ -46,7 +46,6 @@ def write_content_to_file(serie, path_to_file):
         file.write(value)
     file.close()
 
-|
 # This function must edit the settings file to take into account the number of scores (the dimension)
 # and return the model_type
 def edit_settings_files(dimension):

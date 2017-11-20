@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 #import sys
-import utils_highcharts
+from utils import utils_highcharts
 
 
 def get_parameters_from_population_file(path):

@@ -46,6 +46,7 @@ def read_population_parameters(path_to_file):
 
         # Extract parameters
         list_elements = line.split()
+        print(list_elements)
         param_name = list_elements[0]
         param_values = [float(list_elements[i]) for i in range(1, len(list_elements))]
 

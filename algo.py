@@ -7,7 +7,7 @@ sys.path.append("/Users/clementine.fourrier/Documents/Projets/HBP/python-base-do
 try:
     import io_helper
 except:
-    print "No import"
+    print("No import")
 from utils import utils
 
 

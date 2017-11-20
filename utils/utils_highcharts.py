@@ -46,7 +46,6 @@ def read_population_parameters(path_to_file):
 
         # Extract parameters
         list_elements = line.split()
-        print(list_elements)
         param_name = list_elements[0]
         param_values = [float(list_elements[i]) for i in range(1, len(list_elements))]
 
@@ -117,7 +116,7 @@ def compute_individual_parameters(list_elements, number_of_params):
 
 def write_univar_output_to_highchart():
     pop_param = read_population_parameters("longitudina/examples/scalar_models/univariate/output/population_parameters.txt")
-    indiv_param = read_population_parameters("longitudina/examples/scalar_models/univariate/output/individual_parameters.txt")
+    indiv_param = read_individual_parameters("longitudina/examples/scalar_models/univariate/output/individual_parameters.txt")
     series = generate_all_data_univar(pop_param, indiv_param)
     result_string = "{title: {text: 'Evolution of scores in time'},yAxis: {title: {text: 'Scores'}}, xAxis: {title: " \
                     "{text: 'Age'}}, legend: {layout: 'vertical',align: 'right',verticalAlign: 'middle',borderWidth: 0}, " \

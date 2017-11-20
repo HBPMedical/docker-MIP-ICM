@@ -9,7 +9,7 @@ import math
 def generate_data_univar(p0, v0, t0):
     loc_series = []
     for t in range(40, 110):
-        loc_series.push({'x': t, 'y': 1. / (1. + (1./ p0 - 1) * math.exp(-v0*(t-t0)))})
+        loc_series.append({'x': t, 'y': 1. / (1. + (1./ p0 - 1) * math.exp(-v0*(t-t0)))})
     return loc_series
 
 
@@ -19,13 +19,13 @@ def generate_all_data_univar(pop_param, indiv_param):
     v0 = math.exp(pop_param['ksimean'])
     t0 = pop_param['taumean']
 
-    loc_series.push({'data': generate_data_univar(p0, v0, t0), 'name': 'Mean'})
+    loc_series.append({'data': generate_data_univar(p0, v0, t0), 'name': 'Mean'})
     for i in range(len(indiv_param)):
         t0 = indiv_param[i]['tau']
         v0 = math.exp(indiv_param[i]['ksi'])
         id = indiv_param[i]['id']
         indiv_results = generate_data_univar(p0, v0, t0, id);
-        loc_series.push({'data': indiv_results, 'name': 'Patient ' + id});
+        loc_series.append({'data': indiv_results, 'name': 'Patient ' + id});
     return loc_series
 
 

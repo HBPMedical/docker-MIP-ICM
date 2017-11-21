@@ -123,7 +123,7 @@ def write_univar_output_to_highchart():
     series = generate_all_data_univar(pop_param, indiv_param)
     result_string = "{title: {text: 'Evolution of scores in time'},yAxis: {title: {text: 'Scores'}}, xAxis: {title: " \
                     "{text: 'Age'}}, legend: {layout: 'vertical',align: 'right',verticalAlign: 'middle',borderWidth: 0}, " \
-                    "series: " + series + "}"
+                    "series: " + str(series) + "}"
 
     print(result_string)
 

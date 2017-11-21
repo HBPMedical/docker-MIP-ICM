@@ -22,10 +22,11 @@ def generate_all_data_univar(pop_param, indiv_param):
     t0 = pop_param['taumean']
 
     loc_series.append({'data': generate_data_univar(p0, v0, t0), 'name': 'Mean'})
-    for i in indiv_param.keys():
-        t0 = indiv_param[i]['tau']
-        v0 = math.exp(float(indiv_param[i]['ksi']))
-        id = indiv_param[i]['id']
+    for id_patient in indiv_param.keys():
+        print(indiv_param[id_patient])
+        t0 = indiv_param[id_patient]['tau']
+        v0 = math.exp(float(indiv_param[id_patient]['ksi']))
+        id = indiv_param[id_patient]['id']
         indiv_results = generate_data_univar(p0, v0, t0, id);
         loc_series.append({'data': indiv_results, 'name': 'Patient ' + id});
     return loc_series

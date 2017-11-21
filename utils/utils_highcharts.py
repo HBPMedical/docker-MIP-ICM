@@ -21,6 +21,7 @@ def generate_all_data_univar(pop_param, indiv_param):
     p0 = pop_param['p']
     v0 = math.exp(pop_param['ksimean'])
     t0 = pop_param['taumean']
+    print(p0, v0, t0)
     loc_series.append({'data': generate_data_univar(p0, v0, t0), 'name': 'Mean'})
 
     # Generate individual curves
@@ -126,7 +127,5 @@ def write_univar_output_to_highchart():
     result_string = "{title: {text: 'Evolution of scores in time'},yAxis: {title: {text: 'Scores'}}, xAxis: {title: " \
                     "{text: 'Age'}}, legend: {layout: 'vertical',align: 'right',verticalAlign: 'middle',borderWidth: 0}, " \
                     "series: " + str(series) + "}"
-
-    print(result_string)
 
     return result_string

@@ -27,8 +27,8 @@ def generate_all_data_univar(pop_param, indiv_param):
         t0 = indiv_param[id_patient]['tau'][0]
         v0 = math.exp(float(indiv_param[id_patient]['ksi'][0]))
         id = indiv_param[id_patient]['id'][0]
-        indiv_results = generate_data_univar(p0, v0, t0, id);
-        loc_series.append({'data': indiv_results, 'name': 'Patient ' + id});
+        indiv_results = generate_data_univar(p0, v0, t0, id)
+        loc_series.append({'data': indiv_results, 'name': 'Patient ' + id})
     return loc_series
 
 

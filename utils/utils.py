@@ -13,13 +13,13 @@ def write_output_to_highchart(model_type):
 # Might need to add a transformation function to go from the dictionnary to lists to write in the different files,
 # especially if we get several queries.
 def write_input_to_file(data):
-#    path_to_group_file = "longitudina/examples/scalar_models/univariate/data/groups.csv"
-#    path_to_X_file = "longitudina/examples/scalar_models/univariate/data/X.csv"
-#    path_to_Y_file = "longitudina/examples/scalar_models/univariate/data/Y.csv"
+    path_to_group_file = "longitudina/examples/scalar_models/univariate/data/groups.csv"
+    path_to_X_file = "longitudina/examples/scalar_models/univariate/data/X.csv"
+    path_to_Y_file = "longitudina/examples/scalar_models/univariate/data/Y.csv"
 
-    path_to_group_file = "/Users/clementine.fourrier/Documents/Projets/Longitudina/Longitudina_HBP/examples/scalar_models/univariate/data/groups.csv"
-    path_to_X_file = "/Users/clementine.fourrier/Documents/Projets/Longitudina/Longitudina_HBP/examples/scalar_models/univariate/data/X.csv"
-    path_to_Y_file = "/Users/clementine.fourrier/Documents/Projets/Longitudina/Longitudina_HBP/examples/scalar_models/univariate/data/Y.csv"
+#    path_to_group_file = "/Users/clementine.fourrier/Documents/Projets/Longitudina/Longitudina_HBP/examples/scalar_models/univariate/data/groups.csv"
+#    path_to_X_file = "/Users/clementine.fourrier/Documents/Projets/Longitudina/Longitudina_HBP/examples/scalar_models/univariate/data/X.csv"
+#    path_to_Y_file = "/Users/clementine.fourrier/Documents/Projets/Longitudina/Longitudina_HBP/examples/scalar_models/univariate/data/Y.csv"
 
     data_stores = data["data"]["independent"]
     dimension = 1

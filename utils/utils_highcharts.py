@@ -24,9 +24,9 @@ def generate_all_data_univar(pop_param, indiv_param):
     loc_series.append({'data': generate_data_univar(p0, v0, t0), 'name': 'Mean'})
     for id_patient in indiv_param.keys():
         print(indiv_param[id_patient])
-        t0 = indiv_param[id_patient]['tau']
-        v0 = math.exp(float(indiv_param[id_patient]['ksi']))
-        id = indiv_param[id_patient]['id']
+        t0 = indiv_param[id_patient]['tau'][0]
+        v0 = math.exp(float(indiv_param[id_patient]['ksi'][0]))
+        id = indiv_param[id_patient]['id'][0]
         indiv_results = generate_data_univar(p0, v0, t0, id);
         loc_series.append({'data': indiv_results, 'name': 'Patient ' + id});
     return loc_series

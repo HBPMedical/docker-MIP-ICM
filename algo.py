@@ -23,9 +23,7 @@ def main():
     os.system("./main_" + model_type + ".sh")
     highchart = utils.write_output_to_highchart(model_type)
     print(highchart)
-    error = 0
-    shape = 0
-    io_helper.save_results(highchart, error, shape)
+    io_helper.save_results(highchart, "application/highcharts+json")
 
 
 

@@ -17,18 +17,20 @@ def generate_data_multivar():
 
 def generate_all_data_univar(pop_param, indiv_param):
     loc_series = []
+    # Generate population curves: mean
     p0 = pop_param['p']
     v0 = math.exp(pop_param['ksimean'])
     t0 = pop_param['taumean']
-
     loc_series.append({'data': generate_data_univar(p0, v0, t0), 'name': 'Mean'})
-    for id_patient in indiv_param.keys():
-        print(indiv_param[id_patient])
-        t0 = indiv_param[id_patient]['tau'][0]
-        v0 = math.exp(float(indiv_param[id_patient]['ksi'][0]))
-        id = indiv_param[id_patient]['id'][0]
-        indiv_results = generate_data_univar(p0, v0, t0)
-        loc_series.append({'data': indiv_results, 'name': 'Patient ' + id})
+
+    # Generate individual curves
+    #for id_patient in indiv_param.keys():
+    #    print(indiv_param[id_patient])
+    #    t0 = indiv_param[id_patient]['tau'][0]
+    #    v0 = math.exp(float(indiv_param[id_patient]['ksi'][0]))
+    #    id = indiv_param[id_patient]['id'][0]
+    #    indiv_results = generate_data_univar(p0, v0, t0)
+    #    loc_series.append({'data': indiv_results, 'name': 'Patient ' + id})
     return loc_series
 
 

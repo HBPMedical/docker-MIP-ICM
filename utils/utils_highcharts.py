@@ -19,7 +19,7 @@ def generate_all_data_univar(pop_param, indiv_param):
     loc_series = []
     # Generate population curves: mean
     p0 = pop_param['p']
-    v0 = pop_param['ksimean'] #math.exp(pop_param['ksimean'])
+    v0 = math.exp(pop_param['ksimean'])
     t0 = pop_param['taumean']
     loc_series.append({'data': generate_data_univar(p0, v0, t0), 'name': 'Mean'})
 

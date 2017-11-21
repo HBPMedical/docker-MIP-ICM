@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 #import sys
-import utils_highcharts
-#from utils import utils_highcharts
+try:
+    import utils_highcharts
+except:
+    from utils import utils_highcharts
 
 def write_output_to_highchart(model_type):
     if model_type == "univariate":

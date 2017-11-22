@@ -15,9 +15,7 @@ def main():
     logging.basicConfig(level=logging.INFO)
     try:
         data = io_helper.fetch_data() #renverra des dataframes pandas => 2 novembre, envoyer message to Mirco
-        #print(data)
         model_type = utils.write_input_to_file(data)
-        #print("End of the dataaaaa")
     except:
         model_type = "multivariate"
     os.system("./main_" + model_type + ".sh")

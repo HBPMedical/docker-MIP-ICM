@@ -19,7 +19,7 @@ def main():
         model_type = utils.write_input_to_file(data)
         #print("End of the dataaaaa")
     except:
-        model_type = "univariate"
+        model_type = "multivariate"
     os.system("./main_" + model_type + ".sh")
     highchart = utils.write_output_to_highchart(model_type)
     print(highchart)

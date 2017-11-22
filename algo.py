@@ -17,7 +17,7 @@ def main():
         data = io_helper.fetch_data() #renverra des dataframes pandas => 2 novembre, envoyer message to Mirco
         #print(data)
         model_type = utils.write_input_to_file(data)
-        print("End of the dataaaaa")
+        #print("End of the dataaaaa")
     except:
         model_type = "univariate"
     os.system("./main_" + model_type + ".sh")

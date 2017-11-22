@@ -21,7 +21,6 @@ def generate_all_data_univar(pop_param, indiv_param):
     p0 = pop_param['p0']
     v0 = pop_param['v0']
     t0 = pop_param['t0']
-    print(p0, v0, t0)
     loc_series.append({'data': generate_data_univar(p0, v0, t0), 'name': 'Mean'})
 
     # Generate individual curves
@@ -59,7 +58,6 @@ def read_population_parameters(path_to_file):
         params[param_name] = param_values[0] if len(param_values) == 1 else param_values
 
     f.close()
-    print(params)
     return params
 
 

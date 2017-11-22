@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-cd longitudina/
-exec build/Longitudina fit \
-examples/scalar_models/univariate/settings/model_settings.xml \
-examples/scalar_models/univariate/settings/algorithm_settings.xml \
-examples/scalar_models/univariate/settings/data_settings.xml \
-examples/scalar_models/univariate/settings/sampler_settings.xml \
+cd longitudina/examples/scalar_models/univariate/
+exec ../../../build/Longitudina fit \
+settings/model_settings.xml \
+settings/algorithm_settings.xml \
+settings/data_settings.xml \
+settings/sampler_settings.xml \
 0
 echo "done"
 cd outputs/

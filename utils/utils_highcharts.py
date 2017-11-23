@@ -29,7 +29,7 @@ def generate_data_multivar(g, delta, w, v0, t0):
         parallel_curve = - w * (1./G + 1) * (G + 1) - delta - v0 * (t - t0)
         parallel_curve = 1 + g * math.exp(parallel_curve)
         parallel_curve = 1. / parallel_curve
-        loc_series.append({'x': t, 'y': parallel_curve })
+        loc_series.append({'x': t, 'y': parallel_curve})
     return loc_series
 
 

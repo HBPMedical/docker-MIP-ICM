@@ -19,7 +19,7 @@ def main():
     #except:
     #    model_type = "univariate"
 
-    model_type = "multivariate"
+    model_type = "univariate"
     print(model_type)
     os.system("./main_" + model_type + ".sh")
     print("end of run")

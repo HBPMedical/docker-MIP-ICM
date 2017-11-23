@@ -13,11 +13,13 @@ from utils import utils
 
 def main():
     logging.basicConfig(level=logging.INFO)
-    try:
-        data = io_helper.fetch_data() #renverra des dataframes pandas => 2 novembre, envoyer message to Mirco
-        model_type = utils.write_input_to_file(data)
-    except:
-        model_type = "multivariate"
+    #try:
+    #    data = io_helper.fetch_data() #renverra des dataframes pandas => 2 novembre, envoyer message to Mirco
+    #    model_type = utils.write_input_to_file(data)
+    #except:
+    #    model_type = "univariate"
+
+    model_type = "univariate"
     print(model_type)
     os.system("./main_" + model_type + ".sh")
     print("end of run")

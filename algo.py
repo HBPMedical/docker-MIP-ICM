@@ -18,7 +18,9 @@ def main():
         model_type = utils.write_input_to_file(data)
     except:
         model_type = "multivariate"
+    print(model_type)
     os.system("./main_" + model_type + ".sh")
+    print("end of run")
     highchart = utils.write_output_to_highchart(model_type)
     print(highchart)
     io_helper.save_results(highchart, "application/highcharts+json")

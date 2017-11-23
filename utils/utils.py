@@ -9,6 +9,8 @@ except:
 def write_output_to_highchart(model_type):
     if model_type == "univariate":
         return utils_highcharts.write_univar_output_to_highchart()
+    if model_type == "multivariate":
+        return utils_highcharts.write_multivar_output_to_highchart()
 
 # Might need to add a transformation function to go from the dictionnary to lists to write in the different files,
 # especially if we get several queries.

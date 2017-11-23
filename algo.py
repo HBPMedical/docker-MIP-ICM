@@ -25,7 +25,7 @@ def main():
     print("end of run")
     highchart = utils.write_output_to_highchart(model_type)
     print(highchart)
-    io_helper.save_result(highchart, "application/highcharts+json")
+    io_helper.save_results(highchart, "", "highcharts_json")
 
 
 

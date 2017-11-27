@@ -1,4 +1,4 @@
-FROM icm-base-docker:latest #hbpmip/python-mip:0.1.3
+FROM icm-base-docker
 
 MAINTAINER clementine.fourrier@icm-institute.org
 

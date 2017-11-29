@@ -8,5 +8,5 @@ settings/data_settings.xml \
 settings/sampler_settings.xml \
 0
 echo "done"
-cd outputs/
+cd output/
 ls

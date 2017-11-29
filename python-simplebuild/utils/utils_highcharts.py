@@ -59,7 +59,7 @@ def generate_all_data_multivar(pop_param, indiv_param):
     v0 = pop_param['v0']
     t0 = pop_param['t0']
     for delta in deltas:
-        loc_series.append({'data': generate_data_multivar(g, delta, 0, v0, t0), 'name': 'Mean_' + delta})
+        loc_series.append({'data': generate_data_multivar(g, delta, 0, v0, t0), 'name': 'Mean_' + str(delta)})
 
     # Generate individual curves
     # To edit if needed

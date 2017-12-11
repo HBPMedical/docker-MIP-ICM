@@ -7,6 +7,13 @@ import math
 
 
 def generate_data_univar(p0, v0, t0):
+    """
+    Creates the values for a curve for a single patient (combination of p0, v0, t0), to plot the curve
+    :param p0:
+    :param v0:
+    :param t0:
+    :return: The succession of curves
+    """
     loc_series = []
     for t in range(40, 110):
         loc_series.append({'x': t, 'y': 1. / (1. + (1./ p0 - 1) * math.exp(-v0*(t-t0)))})
@@ -160,6 +167,10 @@ def compute_individual_parameters(list_elements, number_of_params):
 
 
 def write_univar_output_to_highchart():
+    """
+    Computes the highchart for the univariate model, and writes it to a string
+    :return: string: The highchart representation of the curves
+    """
     pop_param = read_population_parameters("longitudina/examples/scalar_models/univariate/output/population_parameters.txt")
     indiv_param = read_individual_parameters("longitudina/examples/scalar_models/univariate/output/individual_parameters.txt")
     series = generate_all_data_univar(pop_param, indiv_param)
@@ -171,6 +182,10 @@ def write_univar_output_to_highchart():
 
 
 def write_multivar_output_to_highchart():
+    """
+    Computes the highchart for the multivariate model, and writes it to a string
+    :return: string: The highchart representation of the curves
+    """
     pop_param = read_population_parameters("longitudina/examples/scalar_models/multivariate/output/population_parameters.txt")
     indiv_param = read_individual_parameters("longitudina/examples/scalar_models/multivariate/output/individual_parameters.txt")
     series = generate_all_data_multivar(pop_param, indiv_param)

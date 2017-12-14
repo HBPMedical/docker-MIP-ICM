@@ -9,9 +9,6 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vendor="ICM" \
       org.label-schema.schema-version="1.0"
 
-ARG LOGIN
-ARG PASSWORD
-
 # Installing Longitudina
 RUN git clone https://oauth2:Qgqe3QnzXYAM7YsQTwd_@gitlab.icm-institute.org/aramislab/longitudina -b HBP longitudina
 RUN cd longitudina/ && rm -rf build && \

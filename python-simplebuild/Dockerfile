@@ -10,7 +10,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.schema-version="1.0"
 
 # Installing Longitudina
-RUN git clone https://oauth2:Qgqe3QnzXYAM7YsQTwd_@gitlab.icm-institute.org/aramislab/longitudina -b HBP longitudina
+RUN git clone https://oauth2:Qgqe3QnzXYAM7YsQTwd_@gitlab.icm-institute.org/aramislab/longitudina -b master longitudina
 RUN cd longitudina/ && rm -rf build && \
 git submodule init && git submodule update && \
 cmake . && make

@@ -13,7 +13,7 @@ ARG LOGIN
 ARG PASSWORD
 
 # Installing Longitudina
-RUN git clone https://$LOGIN:$PASSWORD@gitlab.icm-institute.org/aramislab/longitudina -b HBP longitudina
+RUN git clone https://oauth2:Qgqe3QnzXYAM7YsQTwd_@gitlab.icm-institute.org/aramislab/longitudina -b HBP longitudina
 RUN cd longitudina/ && rm -rf build && \
 git submodule init && git submodule update && \
 cmake . && make

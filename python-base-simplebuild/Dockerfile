@@ -13,7 +13,7 @@ RUN echo "deb http://deb.debian.org/debian stretch main" >> /etc/apt/sources.lis
 RUN echo "deb-src http://deb.debian.org/debian stretch main" >> /etc/apt/sources.list
 
 # Installing the basics (gcc, g++, ...)
-RUN rm var/lib/apt/lists/httpredir.debian.org_debian_dists_jessie_main_binary-amd64_Packages.gz
+#RUN rm var/lib/apt/lists/httpredir.debian.org_debian_dists_jessie_main_binary-amd64_Packages.gz
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN apt-get install -y \
 build-essential \

@@ -20,7 +20,7 @@ def write_input_to_file(data):
     path_to_Y_file = "longitudina/examples/scalar_models/univariate/sigmoid/data/Y.csv"
 
     data_stores = data["data"]["independent"]
-    dimension = 2
+    dimension = 1
     for item_dict in data_stores:
         if item_dict["name"] == "id":
             write_content_to_file(item_dict["series"], path_to_group_file)

@@ -1,4 +1,4 @@
-FROM hbpmip/python-mip:0.1.3
+FROM hbpmip/python-mip:latest
 
 MAINTAINER clementine.fourrier@icm-institute.org
 

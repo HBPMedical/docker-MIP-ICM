@@ -171,8 +171,8 @@ def write_univar_output_to_highchart():
     Computes the highchart for the univariate model, and writes it to a string
     :return: string: The highchart representation of the curves
     """
-    pop_param = read_population_parameters("longitudina/examples/scalar_models/univariate/sigmoid/output/population_parameters.txt")
-    indiv_param = read_individual_parameters("longitudina/examples/scalar_models/univariate/sigmoid/output/individual_parameters.txt")
+    pop_param = read_population_parameters("longitudina/examples/scalar_models/univariate/sigmoid/output/population_parameters.csv")
+    indiv_param = read_individual_parameters("longitudina/examples/scalar_models/univariate/sigmoid/output/individual_parameters.csv")
     series = generate_all_data_univar(pop_param, indiv_param)
     result_string = "{title: {text: 'Evolution of scores in time'},yAxis: {title: {text: 'Scores'}}, xAxis: {title: " \
                     "{text: 'Age'}}, legend: {layout: 'vertical',align: 'right',verticalAlign: 'middle',borderWidth: 0}, " \
@@ -186,8 +186,8 @@ def write_multivar_output_to_highchart():
     Computes the highchart for the multivariate model, and writes it to a string
     :return: string: The highchart representation of the curves
     """
-    pop_param = read_population_parameters("longitudina/examples/scalar_models/multivariate/output/population_parameters.txt")
-    indiv_param = read_individual_parameters("longitudina/examples/scalar_models/multivariate/output/individual_parameters.txt")
+    pop_param = read_population_parameters("longitudina/examples/scalar_models/multivariate/output/population_parameters.csv")
+    indiv_param = read_individual_parameters("longitudina/examples/scalar_models/multivariate/output/individual_parameters.csv")
     series = generate_all_data_multivar(pop_param, indiv_param)
     result_string = "{title: {text: 'Evolution of scores in time'},yAxis: {title: {text: 'Scores'}}, xAxis: {title: " \
                     "{text: 'Age'}}, legend: {layout: 'vertical',align: 'right',verticalAlign: 'middle',borderWidth: 0}, " \

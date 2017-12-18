@@ -98,7 +98,7 @@ def read_population_parameters(path_to_file):
         line = line.lower()
 
         # Extract parameters
-        list_elements = line.split()
+        list_elements = line.split(',')
         param_name = list_elements[0]
         param_values = [float(list_elements[i]) for i in range(1, len(list_elements))]
 
@@ -122,8 +122,8 @@ def read_individual_parameters(file_name):
     f = open(file_name, 'r')
 
     # Get the parameters
-    labels = f.readline().lower().split()
-    number_per_label = f.readline().split()
+    labels = f.readline().lower().split(',')
+    number_per_label = f.readline().split(',')
 
     params = []
     for idx, name in enumerate(labels):

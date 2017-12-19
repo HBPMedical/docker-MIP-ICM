@@ -113,9 +113,6 @@ def read_population_parameters(path_to_file):
     return params
 
 
-
-
-
 def read_multiple_individual_parameters(file_name):
     reader = csv.reader(open(file_name, 'r'))
     parameters = {}
@@ -141,14 +138,13 @@ def read_multiple_individual_parameters(file_name):
             s_parameters_last[id_][parameter] = last_value
             s_parameters_mean[id_][parameter] = mean_value
 
-    for k, v in s_parameters_last.iteritems():
+    for k, v in s_parameters_last.items():
         values = [v["s#"+str(i)] for i in range(len(v))]
         parameters[k]["last_s"] = values
 
-    for k, v in s_parameters_mean.iteritems():
+    for k, v in s_parameters_mean.items():
         values = [v["s#"+str(i)] for i in range(len(v))]
         parameters[k]["mean_s"] = values
-
 
     return parameters
 

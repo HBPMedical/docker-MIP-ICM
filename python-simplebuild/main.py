@@ -5,7 +5,7 @@ import os
 import sys
 sys.path.append("/Users/clementine.fourrier/Documents/Projets/HBP/python-base-docker-images/python-mip/io_helper/io_helper/")
 try:
-    import io_helper
+    from io_helper import io_helper
 except:
     print("No import")
 from utils import utils

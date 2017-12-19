@@ -115,42 +115,42 @@ def read_population_parameters(path_to_file):
 
 
 
-def read_individual_parameters(file_name):
-    """
-    Reads the individual parameters file
-    Args:
-        file_name: the path to the population file Longitudina outputted
 
-    Returns:
-        dict: a dictionnary with the name of the parameters as keys and their values as values
-        dict: a dictionnary linking the ids and rids of the elements
-    """
-    f = open(file_name, 'r')
+def read_multiple_individual_parameters(file_name):
+    reader = csv.reader(open(file_name, 'r'))
+    parameters = {}
+    s_parameters_mean = {}
+    s_parameters_last = {}
 
-    # Get the parameters
-    labels = f.readline().lower().split()
-    number_per_label = f.readline().split()
+    for row in reader:
+        id_ = row[0].strip()
+        parameter = row[1].strip().lower()
+        last_value = float(row[2].strip())
+        mean_value = float(row[3].strip())
 
-    params = []
-    for idx, name in enumerate(labels):
-        params.append((name, int(number_per_label[idx])))
+        if id_ not in parameters:
+            parameters[id_] = {}
+            s_parameters_last[id_] = {}
+            s_parameters_mean[id_] = {}
 
-    # Get the parameters
-    individual_parameters = {}
-    map_between_id_and_rid = {}
-    id = 0
-    for line in f:
-        if line == "":
-            continue
+        ### Handle the sources
+        if parameter[0:2] != "s#":
+            parameters[id_]['last_'+parameter] = last_value
+            parameters[id_]['mean_'+parameter] = mean_value
+        else:
+            s_parameters_last[id_][parameter] = last_value
+            s_parameters_mean[id_][parameter] = mean_value
 
-        list_elements = line.split()
-        map_between_id_and_rid[list_elements[0]] = id
+    for k, v in s_parameters_last.iteritems():
+        values = [v["s#"+str(i)] for i in range(len(v))]
+        parameters[k]["last_s"] = values
 
-        # Add individuals
-        individual_parameters[id] = compute_individual_parameters(list_elements, params)
-        id +=1
+    for k, v in s_parameters_mean.iteritems():
+        values = [v["s#"+str(i)] for i in range(len(v))]
+        parameters[k]["mean_s"] = values
 
-    return individual_parameters, map_between_id_and_rid
+
+    return parameters
 
 def compute_individual_parameters(list_elements, number_of_params):
     """ Reads the individual parameters file
@@ -182,7 +182,7 @@ def write_univar_output_to_highchart():
     :return: string: The highchart representation of the curves
     """
     pop_param = read_population_parameters("longitudina/examples/scalar_models/univariate/sigmoid/output/population_parameters.csv")
-    indiv_param = read_individual_parameters("longitudina/examples/scalar_models/univariate/sigmoid/output/individual_parameters.csv")
+    indiv_param = read_multiple_individual_parameters("longitudina/examples/scalar_models/univariate/sigmoid/output/individual_parameters.csv")
     series = generate_all_data_univar(pop_param, indiv_param)
     result_string = "{title: {text: 'Evolution of scores in time'},yAxis: {title: {text: 'Scores'}}, xAxis: {title: " \
                     "{text: 'Age'}}, legend: {layout: 'vertical',align: 'right',verticalAlign: 'middle',borderWidth: 0}, " \

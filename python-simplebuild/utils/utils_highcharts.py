@@ -91,22 +91,27 @@ def read_population_parameters(path_to_file):
     Returns:
         dict: a dictionnary with the name of the parameters as keys and their values as values
     """
+    reader = csv.reader(open(path_to_file, 'r'))
     params = {}
-    f = open(path_to_file, 'r')
+    params_delta = {}
+    params_delta_tilde = {}
+    nb_delta = 0
+    for row in reader:
+        name = row[0].lower()
+        if name[0:6] == "delta#":
+            params_delta[name] = float(row[1])
+            nb_delta += 1
+        elif name[0:6] == "delta_":
+            params_delta_tilde[name] = float(row[1])
+        else:
+            params[name] = float(row[1])
 
-    for line in f:
-        line = line.lower()
+    params["deltas"] = [params_delta["delta#"+str(i)] for i in range(len(params_delta))]
+    #params["deltas_tilde"] = [params_delta_tilde["delta_tilde#"+str(i)] for i in range(len(params_delta))]
 
-        # Extract parameters
-        list_elements = line.split(',')
-        param_name = list_elements[0]
-        param_values = [float(list_elements[i]) for i in range(1, len(list_elements))]
-
-        # Add to existing dict
-        params[param_name] = param_values[0] if len(param_values) == 1 else param_values
-
-    f.close()
     return params
+
+
 
 
 def read_individual_parameters(file_name):
@@ -122,8 +127,8 @@ def read_individual_parameters(file_name):
     f = open(file_name, 'r')
 
     # Get the parameters
-    labels = f.readline().lower().split(',')
-    number_per_label = f.readline().split(',')
+    labels = f.readline().lower().split()
+    number_per_label = f.readline().split()
 
     params = []
     for idx, name in enumerate(labels):
@@ -131,17 +136,20 @@ def read_individual_parameters(file_name):
 
     # Get the parameters
     individual_parameters = {}
+    map_between_id_and_rid = {}
+    id = 0
     for line in f:
         if line == "":
             continue
 
         list_elements = line.split()
+        map_between_id_and_rid[list_elements[0]] = id
 
         # Add individuals
-        individual_parameters[list_elements[0]] = compute_individual_parameters(list_elements, params)
+        individual_parameters[id] = compute_individual_parameters(list_elements, params)
+        id +=1
 
-    return individual_parameters
-
+    return individual_parameters, map_between_id_and_rid
 
 def compute_individual_parameters(list_elements, number_of_params):
     """ Reads the individual parameters file
@@ -164,6 +172,7 @@ def compute_individual_parameters(list_elements, number_of_params):
         idx_start = idx_end
 
     return individual_parameters
+
 
 
 def write_univar_output_to_highchart():

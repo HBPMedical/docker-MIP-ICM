@@ -23,8 +23,8 @@ def main():
 
     os.system("./main_" + model_type + ".sh")
     highchart = utils.write_output_to_highchart(model_type)
-    print(highchart)
-    io_helper.save_results(highchart, "icm", "highcharts_json")
+    #print(highchart)
+    io_helper.save_results(highchart, "", "highcharts_json")
 
 
 

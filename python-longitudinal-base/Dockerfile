@@ -1,4 +1,4 @@
-FROM hbpmip/python-mip:latest
+FROM hbpmip/python-mip:latest as python-longitudinal-base
 
 MAINTAINER clementine.fourrier@icm-institute.org
 

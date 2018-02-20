@@ -16,7 +16,7 @@ def generate_data_univar(p0, v0, t0):
     :return: The succession of curves
     """
     loc_series = []
-    for t in range(40, 110):
+    for t in range(0, 110):
         loc_series.append({'x': t, 'y': 1. / (1. + (1./ p0 - 1) * math.exp(-v0*(t-t0)))})
     return loc_series
 
@@ -32,7 +32,7 @@ def generate_data_multivar(g, delta, w, v0, t0):
         t0 (float): initial start of the slope for the specific individual
     """
     loc_series = []
-    for t in range(40, 110):
+    for t in range(0, 110):
         G = g * math.exp(-delta) + 1.
         parallel_curve = - w * (1./G + 1) * (G + 1) - delta - v0 * (t - t0)
         parallel_curve = 1 + g * math.exp(parallel_curve)

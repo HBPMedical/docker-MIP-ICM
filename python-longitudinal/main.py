@@ -3,7 +3,7 @@
 import logging
 import os
 import sys
-sys.path.append("/Users/clementine.fourrier/Documents/Projets/HBP/python-base-docker-images/python-mip/io_helper/io_helper/")
+
 try:
     from io_helper import io_helper
 except:
@@ -23,7 +23,7 @@ def main():
 
     os.system("./main_" + model_type + ".sh")
     highchart = utils.write_output_to_highchart(model_type)
-    #print(highchart)
+    print(highchart)
     io_helper.save_results(highchart, "", "highcharts_json")
 
 
